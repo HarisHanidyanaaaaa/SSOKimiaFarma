@@ -403,7 +403,7 @@
                     About
                     Us</h1>
                 <p class="font text-sm text-[#28245C] text-justify" style="color: #28245C;">
-                    (Electronic Batch Record) <br>
+                    (Electronic Batch Record) hehe <br>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto accusamus perferendis incidunt,
                     nesciunt expedita praesentium mollitia voluptates aliquid. Saepe quam maxime consequuntur sit incidunt
                     ab a adipisci expedita provident hic!
