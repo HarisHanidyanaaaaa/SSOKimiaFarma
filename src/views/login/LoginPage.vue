@@ -2,6 +2,7 @@
     <div class="bg-white">
 
         <div class="nav z-50">
+            <marquee behavior="" direction="">hehe :)</marquee>
             <nav class="relative px-4 py-4 flex justify-between items-center " style="background-color: #28245C;"> <img
                     :src="require('./assets/Logo Qualify Di scroll pertama.png')" class="w-40" />
                 <a class="text-3xl font-bold leading-none" href="#">
