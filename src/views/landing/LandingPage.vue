@@ -2,11 +2,9 @@
     <div class="bg-white">
 
         <div class="nav z-50">
-            <nav class="relative px-4 py-4 flex justify-between items-center " style="background-color: #28245C;"> <img :src="require('./assets/Logo Qualify Di scroll pertama.png')" class="w-40" />
+            <nav class="relative px-4 py-4 flex justify-between items-center " style="background-color: #28245C;"> <img :src="require('./assets/Logo.png')" class="w-10" />
                 <a class="text-3xl font-bold leading-none" href="#">
-                    <!-- <img src="assets/Logo.png"
-                        class="logo-background h-6 mr-3 sm:h-9 background-image: url('assets/Logo.png');"
-                        alt="Kimia Farma Logo" /> -->
+                  
                 </a>
 
                 <ul
