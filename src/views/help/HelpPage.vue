@@ -2,8 +2,7 @@
     <div class="bg-white">
 
         <div class="nav z-50">
-            <nav class="relative px-4 py-4 flex justify-between items-center " style="background-color: #28245C;"> <img
-                    :src="require('./assets/Logo.png')" class="w-10" />
+            <nav class="relative px-4 py-4 flex justify-between items-center " style="background-color: #28245C;"> <img :src="require('./assets/Logo.png')" class="w-10" />
                 <a class="text-3xl font-bold leading-none" href="#">
                     <!-- <img src="assets/Logo.png"
                         class="logo-background h-6 mr-3 sm:h-9 background-image: url('assets/Logo.png');"
@@ -106,7 +105,7 @@
         </div>
 
 
-        <div class="py-2 px-4 m-2 sm:mx-auto sm:text-center xl:-ml-3">
+        <div class="py-2 px-4 m-2 sm:mx-auto  xl:-ml-3">
          <div>
          <div class="mt-16">
                     <span class="font text-3xl font-bold" style="color: #28245C;">FAQ</span>
@@ -163,25 +162,10 @@
 
 
 
-    
-
-    
-
-
-
-
-
-
-
-
 
         
         </div>
       </div>
-
-
-
-
 
 
 
@@ -336,7 +320,7 @@ export default {
 }
 
 .bg-image {
-  background-image: url('./assets/Logo Background Login.png'); /* Ganti dengan path gambar sesuai kebutuhan */
+  background-image: url('assets/Logo Background Login.png'); /* Ganti dengan path gambar sesuai kebutuhan */
   background-size: cover;
   background-position: right;
   width: 30%;
