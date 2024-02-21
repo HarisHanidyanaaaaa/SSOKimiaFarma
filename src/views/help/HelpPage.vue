@@ -27,9 +27,30 @@
 
                 
 
-
+    <div id="app">
+          <button v-if="isMobileOrTablet" @click="showSidebar = !showSidebar" class="mobile-sidebar-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+          <div v-show="showSidebar" class="fixed inset-y-0 left-0 z-50 bg-white shadow-xl w-64 overflow-y-auto">
+            <div class="p-4">
+              <button @click="showSidebar = !showSidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              </div>
+                <div class="p-4">
+                    <a href="#appList" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">App List</a>
+                    <a href="#slider" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">Most Visited</a>
+                    <a href="#about" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">About Us</a>
+                    </div>
+            </div>
+        </div>
 
             </nav>
+            
             <div class="navbar-menu relative z-50 hidden">
                 <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
                 <nav
@@ -46,27 +67,6 @@
 
                     </div>
 
-                    <div>
-                        <ul>
-                            <li class="mb-1">
-                                <a href="#appList"
-                                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">App
-                                    List</a>
-                            </li>
-                            <li class="mb-1">
-                                <a href="#slider"
-                                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">Most
-                                    Visited</a>
-                            </li>
-                            <li class="mb-1">
-                                <a href="#about"
-                                    class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">About
-                                    Us</a>
-                            </li>
-
-
-                        </ul>
-                    </div>
 
                 </nav>
             </div>
@@ -76,14 +76,14 @@
 
      <div class="container mx-auto">
         <div class="md:grid md:grid-cols-2 md:gap-4">
-          <div class="font-bold py-2 px-4 m-2 w-80 sm:mx-auto sm:text-center xl:-ml-3">
-            <div class="w-full p-4  xl:mt-7">
+          <div class="font-bold py-2 px-4 m-2 w-80  sm:mx-auto sm:text-center xl:ml-28">
+            <div class="w-48 p-2  xl:mt-7 border-4 rounded-md">
                 <div class="relative inline-block w-full">
             <div @click="toggleDropdown" class="flex items-center cursor-pointer">
               <span class="text-blue-800 mr-2 w-full">{{ selectedOption }}</span>
               
             </div>
-            <div v-if="isOpen" class="absolute bg-white border border-gray-300 shadow-md mt-2 xl:ml-14 sm:ml-14">
+            <div v-if="isOpen" class="absolute bg-white xl:-ml-1 w-full border border-gray-300 shadow-md mt-2 xl:ml-14 sm:ml-14">
               <a href="#" class="flex items-center px-4 py-2 text-blue-800 hover:bg-blue-200" @click="selectOption('Profile Saya')">
                 <img :src="require('./assets/icon/Profile disabled.png')" class="w-4 h-4 mr-2 fill-current text-blue-800">
                   <!-- Ganti ikon untuk Option 1 -->
@@ -105,7 +105,7 @@
         </div>
 
 
-        <div class="py-2 px-4 m-2 sm:mx-auto  xl:-ml-3">
+        <div class="py-2 px-4 m-2 xl:-ml-14 sm:ml-64 md:-ml-5 md:-mt-10">
          <div>
          <div class="mt-16">
                     <span class="font text-3xl font-bold" style="color: #28245C;">FAQ</span>
@@ -116,7 +116,7 @@
                     Q: Apa Itu Qualify
                   </button>
                   <transition name="fade">
-                    <p v-if="show1" class="font mt-2 space-y-2 px-7 sm:w-80" style="color: #28245C;">  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam veniam ipsa voluptatum fuga commodi optio atque ullam eos id, libero autem quis explicabo, quia velit facere sit itaque eveniet.</p>
+                    <p v-if="show1" class="font mt-2 space-y-2 px-7 sm:w-80 text-justify" style="color: #28245C;">  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magnam veniam ipsa voluptatum fuga commodi optio atque ullam eos id, libero autem quis explicabo, quia velit facere sit itaque eveniet.</p>
                   </transition>
                 </div>
                  <div class="mt-5">
@@ -124,7 +124,7 @@
                     Q: Makna Qualify
                   </button>
                   <transition name="fade">
-                    <p v-if="show2" class="font mt-2 space-y-2 px-7 sm:w-80" style="color: #28245C;"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsum minima aperiam natus dolorum nobis praesentium magni sint animi, exercitationem perspiciatis, maxime consectetur inventore ipsam, laudantium saepe. Magnam, laboriosam magni.</p>
+                    <p v-if="show2" class="font mt-2 space-y-2 px-7 sm:w-80 text-justify" style="color: #28245C;"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsum minima aperiam natus dolorum nobis praesentium magni sint animi, exercitationem perspiciatis, maxime consectetur inventore ipsam, laudantium saepe. Magnam, laboriosam magni.</p>
                   </transition>
                 </div>
                 <div class="mt-5">
@@ -132,7 +132,7 @@
                         Q: Tujuan Landing Page Qualify
                       </button>
                       <transition name="fade">
-                        <p v-if="show3" class="font mt-2 space-y-2 px-7 sm:w-80" style="color: #28245C;">   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsum minima aperiam natus dolorum nobis
+                        <p v-if="show3" class="font mt-2 space-y-2 px-7 sm:w-80 text-justify" style="color: #28245C;">   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsum minima aperiam natus dolorum nobis
                             praesentium magni sint animi, exercitationem perspiciatis, maxime consectetur inventore ipsam, laudantium saepe.
                             Magnam, laboriosam magni.</p>
                       </transition>
@@ -142,7 +142,7 @@
                         Q: Apa Saja Yang Ada Di Qualify
                       </button>
                       <transition name="fade">
-                        <p v-if="show4" class="font mt-2 space-y-2 px-7 sm:w-80" style="color: #28245C;"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsum minima aperiam natus dolorum nobis
+                        <p v-if="show4" class="font mt-2 space-y-2 px-7 sm:w-80 text-justify" style="color: #28245C;"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsum minima aperiam natus dolorum nobis
                             praesentium magni sint animi, exercitationem perspiciatis, maxime consectetur inventore ipsam, laudantium saepe.
                             Magnam, laboriosam magni..</p>
                       </transition>
@@ -264,6 +264,9 @@ export default {
         swiper.on('slideChange', () => {
             console.log('slide changed');
         });
+           if (window.innerWidth <= 768) {
+            this.showSidebar = true;
+        }
     },
 
     data() {
@@ -274,35 +277,69 @@ export default {
             show3: false,
             show4: false,
               username: '',
-             
+                showSidebar: false,
+                isDesktop: false,
             password: '',
              isOpen: false,
             selectedOption: 'Navigasi Profile',
 
         };
     },
+    created() {
+        this.isMobileOrTablet = window.innerWidth < 1024; // Assuming tablet and mobile have width less than 1024px
+        window.addEventListener('resize', this.handleResize);
+    },
+   
       methods: {
         toggleDropdown() {
             this.isOpen = !this.isOpen;
+        },
+         handleResize() {
+            this.isMobileOrTablet = window.innerWidth < 1024;
         },
         selectOption(option) {
             this.selectedOption = option;
             this.isOpen = false;
         },
     },
+    watch: {
+        showSidebar(val) {
+            if (!val) {
+                document.body.classList.remove('overflow-hidden');
+            } else {
+                document.body.classList.add('overflow-hidden');
+            }
+        }
+    }
 };
 </script>
 
 <style scoped>
 @import 'swiper/swiper-bundle.css';
-
-/* Gaya CSS tambahan sesuai kebutuhan Anda */
-.slide-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.sidebar {
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
 }
 
+/* Styles for main content */
+.main-content {
+  margin-left: 200px; /* Adjust according to sidebar width */
+  padding: 20px;
+}
+
+/* Styles for mobile sidebar toggle */
+.mobile-sidebar-toggle {
+  display: none; /* Hide by default */
+}
+
+/* Show mobile sidebar toggle on smaller screens */
+@media (max-width: 1023px) {
+  .mobile-sidebar-toggle {
+    display: block;
+  }
+}
 .sub-div {
     margin-bottom: 5px;
 }

@@ -31,7 +31,28 @@
             <!-- Tulisan di pojok kanan -->
             <p class="text-white text-sm mr-2">Nama Yang Login Di Sini</p>
             <!-- Gambar di pojok kanan -->
-            <img :src="require('./assets/Profile.png')" alt="Placeholder Image" class="w-10 h-10 rounded-full">
+              <img :src="require('./assets/Profile.png')" v-if="isDekstop" alt="Placeholder Image" class="w-10 h-10 rounded-full">
+             <div id="app">
+                  <button v-if="isMobileOrTablet" @click="showSidebar = !showSidebar" class="mobile-sidebar-toggle">
+                   <img :src="require('./assets/Profile.png')" alt="Placeholder Image" class="w-10 h-10 rounded-full">
+                </button>
+                  <div v-show="showSidebar" class="fixed inset-y-0 left-0 z-50 bg-white shadow-xl w-64 overflow-y-auto">
+                    <div class="p-4">
+                      <button @click="showSidebar = !showSidebar">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                      </div>
+                        <div class="p-4">
+                            <a href="#appList" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">App List</a>
+                            <a href="#slider" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">Most Visited</a>
+                            <a href="#about" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">About Us</a>
+                            </div>
+                    </div>
+                </div>
+
+           
         </div>
             </nav>
             <div class="navbar-menu relative z-50 hidden">
@@ -81,7 +102,7 @@
      <div class="container mx-auto">
         <div class="md:grid md:grid-cols-2 md:gap-4">
           <div class="font-bold py-2 px-4 m-2 w-80 sm:mx-auto sm:text-center xl:-ml-3">
-            <div class="w-44 p-2  xl:mt-7 border-4 rounded-md ml-20 hover:bg-blue-400 hover:text-white">
+            <div class="w-44 p-2  xl:mt-7 border-4 rounded-md ml-20  hover:text-white">
                 <div class="relative inline-block w-full">
             <div @click="toggleDropdown" class="flex items-center cursor-pointer">
               <span class="text-blue-800 mr-2 w-full">{{ selectedOption }}</span>
@@ -258,8 +279,16 @@ export default {
             password: '',
              isOpen: false,
             selectedOption: 'Navigasi Profile',
+              showSidebar: false,
+            isMobileOrTablet: false,
+            isDekstop: false
 
         };
+    },
+     created() {
+        this.isMobileOrTablet = window.innerWidth < 1024; // Assuming tablet and mobile have width less than 1024px
+        this.isDekstop = window.innerWidth > 1000; // Assuming tablet and mobile have width less than 1024px
+        window.addEventListener('resize', this.handleResize);
     },
       methods: {
         toggleDropdown() {
@@ -269,13 +298,40 @@ export default {
             this.selectedOption = option;
             this.isOpen = false;
         },
+         handleResize() {
+            this.isMobileOrTablet = window.innerWidth < 1024;
+            this.isDekstop = window.innerWidth > 1000;
+        }
     },
 };
 </script>
 
 <style scoped>
 @import 'swiper/swiper-bundle.css';
+.sidebar {
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
 
+/* Styles for main content */
+.main-content {
+  margin-left: 200px; /* Adjust according to sidebar width */
+  padding: 20px;
+}
+
+/* Styles for mobile sidebar toggle */
+.mobile-sidebar-toggle {
+  display: none; /* Hide by default */
+}
+
+/* Show mobile sidebar toggle on smaller screens */
+@media (max-width: 1023px) {
+  .mobile-sidebar-toggle {
+    display: block;
+  }
+}
 /* Gaya CSS tambahan sesuai kebutuhan Anda */
 .slide-title {
     font-size: 24px;
